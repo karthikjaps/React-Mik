@@ -1,0 +1,162 @@
+$table__row--alternate-background-color: rgba(0, 0, 0, 0.05);
+$table__row--hover-background-color: rgba(0, 0, 0, 0.1);
+$table__row--selected-background-color: rgba(0, 0, 0, 0.1);
+
+.table {
+  overflow: hidden;
+  width: 100%;
+  background-color: $theme-color-white;
+  border-collapse: collapse;
+  box-shadow: $box-shadow;
+  color: $font-color;
+  font-size: 1em;
+}
+
+.table--loading {
+  opacity: 0.33;
+  pointer-events: none;
+}
+
+.table--loading,
+.table--no-results {
+  color: lighten($font-color, 33%);
+  font-style: italic;
+  text-align: $start-direction;
+}
+
+.table__row {
+  position: relative;
+  display: block;
+
+  &:nth-child(2n) {
+    background-color: $table__row--alternate-background-color;
+  }
+
+  @include breakpoint {
+    display: table-row;
+
+    &:hover,
+    &:active {
+      background-color: $table__row--hover-background-color;
+    }
+  }
+}
+
+.table__row--clickable {
+  cursor: pointer;
+}
+
+.table__row--selected {
+  background-color: $table__row--selected-background-color;
+}
+
+.table__cell {
+  @include container;
+
+  width: 80%;
+  padding: 0.5em;
+  margin-#{$start-direction}:0;
+
+  @include breakpoint {
+    display: table-cell;
+    width: auto;
+    padding: 1em;
+    text-align: $start-direction;
+  }
+}
+
+.table__cell--first-cell {
+  font-weight: 400;
+}
+
+.table__head {
+  text-transform: uppercase;
+
+  &::before {
+    display: block;
+    box-sizing: border-box;
+    padding: 0.5em;
+    background-color: $theme-color-primary-dark;
+    color: $font-color-light;
+    content: attr(title);
+    font-weight: bold;
+
+    @include breakpoint {
+      display: none;
+    }
+  }
+}
+
+.table__head__row {
+  background-color: $theme-color-primary-dark;
+  color: $font-color-light;
+  pointer-events: none;
+}
+
+.table__head__cell {
+  display: none;
+  padding: 0.5em;
+
+  @include breakpoint {
+    display: table-cell;
+    padding: 1em;
+  }
+}
+
+.table__cell--#{$start-direction} {
+  text-align: $end-direction;
+}
+
+.table__cell--#{$end-direction} {
+  text-align: $start-direction;
+}
+
+.table__cell--#{$start-direction}-space {
+  margin-#{$end-direction}:1em;
+}
+
+.table__cell--center {
+  text-align: center;
+}
+
+.table__cell--clickable {
+  display: block;
+  color: $font-color;
+
+  &:visited,
+  &:hover,
+  &:active {
+    color: $font-color;
+  }
+}
+
+.table-buttons {
+  position: absolute;
+  top: 0;
+  #{$end-direction}:0;
+  bottom: 0;
+  width: 20%;
+  padding: 0.5em;
+  margin: auto;
+
+  @include breakpoint {
+    position: static;
+    display: table-cell;
+    width: auto;
+  }
+}
+
+.table-buttons__icon {
+  margin-#{$end-direction}:1em;
+  cursor: pointer;
+
+  &:last-child {
+    margin-#{$end-direction}:0;
+  }
+}
+
+@include breakpoint() {
+  .table__head__row {
+    display: table-row;
+  }
+}

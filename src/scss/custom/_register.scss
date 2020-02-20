@@ -1,0 +1,204 @@
+$color: #7f8e9a;
+$register-social-border-color: #707070;
+
+.register-card {
+  padding: 0 0 2em;
+  background-color: $theme-color-white;
+}
+
+.register-card__title {
+  padding: 0.75em 0.5em;
+  margin: 0;
+  background-color: $theme-color-tertiary;
+  color: $theme-color-primary;
+  font-weight: 400;
+  text-transform: uppercase;
+
+  @include breakpoint {
+    text-align: center;
+  }
+}
+
+.register-card__content__subheading {
+  font-weight: 700;
+  text-transform: uppercase;
+
+  @include breakpoint {
+    color: $color;
+    font-size: 0.75em;
+    font-weight: 400;
+    text-transform: none;
+  }
+}
+
+.register-card__header {
+  position: relative;
+}
+
+.form__buttons__button--register {
+  border-radius: 2em;
+
+  @include breakpoint {
+    max-width: unset;
+  }
+}
+
+.register-card__content {
+  padding: 1em;
+}
+
+.register-card__content--columns {
+  @include breakpoint {
+    @include container;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+}
+
+.register-card__content--top {
+  display: none;
+  @include breakpoint {
+    text-align: center;
+  }
+}
+
+.register-card__content-section {
+  margin-bottom: 2em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.register-form__section {
+  @include container;
+  padding:  1em 0 2em;
+}
+
+.register-oauth {
+  padding: 1em 0;
+}
+
+.register-form__intro,
+.register-oauth__intro {
+  color: $font-color-secondary;
+  font-size: 1em;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  @include breakpoint {
+    text-align: center;
+  }
+}
+
+.register-oauth-icons__list-item__text {
+  display: block;
+  width: 100%;
+  padding: 1.2em 0;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase; 
+}
+
+.register-form__intro {
+  color: $font-color-secondary;
+}
+
+.register-form-links {
+  @include container;
+  font-size: 0.75em;
+  line-height: 1.5;
+}
+
+.register-form-links__item--forgot-password {
+  text-decoration: underline;
+}
+
+.register-form__register-links {
+  display: block;
+  margin-top: 2em;
+  font-size: 0.75em;
+  text-align: center;
+}
+
+.register-form__register-links__label {
+  margin-#{$end-direction}:0.5em;
+}
+
+.register-form__register-links__link {
+  font-weight: 700;
+  text-transform: uppercase;
+
+  &::after {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-#{$start-direction}:0.5em;
+    background: url("/img/icons/arrow_right.svg") no-repeat 50% 50%;
+    background-size: 100%;
+    content: "";
+    line-height: 1;
+    vertical-align: middle;
+  }
+}
+
+.register-oauth-icons__list {
+  @include container;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.register-oauth-icons__list-item {
+  position: relative;
+  height: 4em;
+  margin: 0.5em 0;
+  border: 1px solid $register-social-border-color;
+  border-radius: 5px;
+}
+
+.register-oauth-icons__list-item__img {
+  position: absolute;
+  #{$start-direction}:0;
+  height: 100%;
+  padding: 0.7em;
+}
+
+.register-card__separator {
+  position: relative;
+  margin: 1em 0;
+  text-align: center;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: calc(50% - 3em);
+    height: 1px;
+    margin: auto;
+    border-top: 1px solid $color;
+    content: "";
+  }
+
+  &::before {
+    #{$start-direction}:0;
+  }
+
+  &::after {
+    #{$end-direction}:0;
+  }
+}
+
+.register-card__separator__span {
+  padding: 1em;
+  background-color: $theme-color-white;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.register-form__checkbox {
+  .form-field__error-message {
+    margin-top: 3em
+  };
+}

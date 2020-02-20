@@ -1,0 +1,180 @@
+.modal--entry-popup {
+  height: 100%;
+  max-height: auto;
+
+  @include breakpoint {
+    max-height: 40em;
+  }
+}
+
+.entry-popup {
+  position: relative;
+  overflow: hidden;
+  max-width: 96%;
+  max-height: 26em;
+  margin-top: 40%;
+  background-image: $theme-header-gradient;
+  color: $theme-color-white;
+
+  @include breakpoint {
+    max-width: 100%;
+    max-height: unset;
+    margin-top: 0;
+  }
+}
+
+.entry-popup__columns {
+  @include container;
+
+  position: relative;
+  display: flex;
+  height: 100%;
+}
+
+.entry-popup__columns__column {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  @include breakpoint {
+    @include span(2 of 5 0 $direction);
+
+    position: static;
+
+    &:nth-child(2n) {
+      @include span(3 of 5 0 last $direction);
+    }
+  }
+}
+
+.entry-popup__content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.entry-popup__content__title {
+  z-index: 1;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-family: $title-font-family;
+  
+  font-size: 2em;
+  line-height: 1;
+  text-transform: uppercase;
+
+  @include breakpoint{
+    font-size: 3em; 
+  }
+}
+
+.entry-popup__content__title--success {
+  text-align: center;
+}
+
+.entry-popup__content__summary {
+  z-index: 1;
+  margin-bottom: 3.5em;
+  font-weight: 700;
+
+  @include breakpoint{
+    margin-bottom: 1.5em;
+  }
+}
+
+.entry-popup__content__summary--success {
+  text-align: center;
+}
+
+.entry-popup__content__form {
+  width: 90%;
+}
+
+.entry-popup__img {
+  visibility: hidden;
+
+  @include breakpoint {
+    width: auto;
+    height: 90%;
+    margin-top: 5%;
+    visibility: visible;
+  }
+
+  @if $direction == rtl {
+    transform: scaleX(-1);
+    margin-right: -5%;
+    margin-left: 0;
+    z-index: 2;
+  }
+}
+
+.entry-popup__footer {
+  position: absolute;
+  right: 0;
+  bottom: 1em;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+
+.entry-popup__footer__decline {
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  margin-bottom: 2em;
+  border-bottom: 1px solid;
+  cursor: pointer;
+  font-size : 0.75em;
+  text-transform: uppercase;
+  
+  @include breakpoint {
+    font-size : 1em;
+  }
+}
+
+.entry-popup__footer__privacy-policy {
+  display: block;
+  font-size: 0.625em;
+}
+
+.form--newsletter__error-messages {
+  position: relative;
+}
+
+.form--newsletter__error-message__text {
+  position: absolute;
+  top: 3.5em;
+  left: 0.5em;
+  color: $theme-color-white;
+}
+
+.button--newsletter-success {
+  min-width: 12em;
+  margin: 1em auto 0;
+  font-weight: 700;
+  text-align: center;
+}
+
+.modal--entry-popup {
+  
+  @include breakpoint {
+    max-width: 64em;
+  }
+}
+
+.entry-popup {
+  .card-close {
+    width: 4em;
+    height: 4em;
+
+    .card-close__button::after {
+      color: $theme-color-white;
+    }
+  }
+}
+
+.entry-popup__icon--success {
+  padding-bottom: 1em;
+}

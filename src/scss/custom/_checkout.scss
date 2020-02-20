@@ -1,0 +1,54 @@
+.checkout-section {
+  height: 100%;
+  min-height: 12em;
+}
+
+.checkout-section__content {
+  padding-top: 1em;
+
+  @include breakpoint {
+    padding-bottom: 2em;
+  }
+}
+
+.checkout-section__details {
+  @include breakpoint {
+    @include container;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.checkout-section__details--two-column {
+  @include breakpoint {
+    flex-direction: row;
+  }
+}
+
+.checkout-section__wrapper {
+  position: relative;
+  height: 100%;
+  padding: 1em;
+}
+
+.checkout-section__details--loading {
+  position: absolute;
+  top: 0;
+  #{$end-direction}:0;
+  bottom: 0;
+  #{$start-direction}:0;
+  background: url("/img/button-loader.svg") no-repeat 50% 50%;
+  background-size: 3em;
+}
+
+.checkout-product-section--two-column {
+  @include breakpoint {
+    @include span(1 of 2 1/12 $direction);
+  }
+}
+
+.checkout-totals-section--two-column {
+  @include breakpoint {
+    @include span(1 of 2 1/12 last $direction);
+  }
+}

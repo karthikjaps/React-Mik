@@ -1,0 +1,209 @@
+$banner-text-background-color: rgba(239, 243, 246, 0.86);
+$active-dot-color: #8b8b8b;
+$dot-color: #ccc;
+
+.main-banner--mobile {
+  display: block;
+
+  @include breakpoint {
+    display: none;
+  }
+}
+
+.main-banner--desktop {
+  display: none;
+
+  @include breakpoint {
+    display: block;
+  }
+}
+
+.main-banner {
+  .slick-arrow {
+    visibility: hidden;
+
+    @include breakpoint {
+      width: 62px;
+      height: 62px;
+      visibility: visible;
+    }
+  }
+
+  .slick-prev {
+    margin-#{$start-direction}: 28px;
+  }
+
+  .slick-next {
+    margin-#{$end-direction}: 28px;
+  }
+
+  .slick-dots {
+    position: absolute;
+    top: calc(100% - 2em);
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+    white-space: nowrap;
+
+    @include breakpoint {
+      visibility: hidden;
+    }
+  }
+
+  .slick-dots li {
+    width: 5px;
+    height: 5px;
+    margin-#{$start-direction}: 0;
+    margin-#{$end-direction}: 0.5em;
+  }
+
+  .slick-dots li.slick-active button::before {
+    width: 5px;
+    height: 5px;
+    background-color: $active-dot-color;
+  }
+
+  .slick-dots li button::before {
+    width: 5px;
+    height: 5px;
+    background-color: $dot-color;
+  }
+}
+
+[dir="rtl"] .main-banner {
+  .slick-prev {
+    margin-#{$end-direction}: 28px;
+  }
+
+  .slick-next {
+    margin-#{$start-direction}: 28px;
+  }
+}
+
+.secondary-banner {
+  margin: 0.5em 2% 0;
+
+  @include breakpoint    {
+    margin: 2em 10% 4em;
+  }
+  
+  .banner-slider__content__text__title {
+    margin: 0 auto;
+    font-size: 1em;
+  
+    @include breakpoint {
+      font-size: 1.5em;
+    }
+  }
+  
+  .banner-slider__content__text__summary {
+    font-size: 0.625em;
+  
+    @include breakpoint {
+      font-size: 0.875em;
+    }
+  }
+}
+
+.banner-slider {
+  text-align: center;
+
+  .slick-slider {
+    margin-bottom: 0;
+  }
+}    
+
+.banner-slider__content {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.banner-slider__content__image {
+  position: static;
+  height: auto;
+}
+
+.banner-slider__content__image__img {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  border-radius: 5px;
+  
+  @include breakpoint {
+    border-radius: 0
+  }
+}
+
+.banner-slider__content__text {
+  position: absolute;
+  #{$end-direction}:0;
+  bottom: 0;
+  #{$start-direction}:0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1em;
+  margin: auto;
+  background-color: $banner-text-background-color;
+  text-align: center;
+
+  @include breakpoint {
+    #{$end-direction}:0;
+    #{$start-direction}:0;
+  }
+}
+
+.banner-slider__content__text__title {
+  display: block;
+  margin: 0 auto 0.25em;
+  font-size: 1.375em;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+
+  @include breakpoint {
+    margin-bottom: 0.1em;
+    font-size: 2.25em;
+    font-weight: 400;
+  }
+}
+
+.banner-slider__content__text__summary {
+  margin: 0.3em auto;
+  font-size: 0.875em;
+  font-weight: 500;
+  text-transform: uppercase;
+
+  @include breakpoint {
+    font-size: 1em;
+    line-height: 1;
+  }
+}
+
+.banner-slider__content__text__link {
+  margin: 0.5em auto 1em;
+  border-bottom: solid 1px $theme-color-primary;
+  color: $theme-color-primary;
+  font-size: 0.875em;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+
+  @include breakpoint {
+    margin-bottom: 0;
+  }
+
+  &::after {
+    display: inline-block;
+    width: 0.4em;
+    height: 0.4em;
+    margin-#{$start-direction}:0.3em;
+    border: solid $theme-color-primary;
+    border-width: 0 1px 1px 0;
+    content: " ";
+    transform: translateY(-2px) rotate(315deg);
+  }
+}

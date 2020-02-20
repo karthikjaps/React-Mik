@@ -1,0 +1,109 @@
+.stripe-banner {
+  position: fixed;
+  z-index: 4;
+  top: 56px;
+  right: 0;
+  left: 0;
+  background-color: $theme-color-primary-light;
+
+  @include breakpoint {
+    position: relative;
+    top: 0;
+    margin-top: -6px;
+  }
+}
+
+.stripe-banner__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include breakpoint {
+    padding: 1em 0;
+  }
+}
+
+.stripe-banner__content__text {
+  padding: 1em;
+  color: $theme-color-white;
+  line-height: 1.5;
+
+  @include breakpoint {
+    display: inline-block;
+  }
+}
+
+.stripe-banner__content__text__title {
+  display: block;
+  font-size: 0.75em;
+  font-weight: 700;
+
+  @include breakpoint {
+    display: inline-block;
+    margin-top: 0.25em; // added as font is not vertically aligned
+    font-size: 1.5em;
+    font-weight: 500;
+  }
+}
+
+.stripe-banner__content__text__summary {
+  display: block;
+  font-size: 0.625em;
+
+  @include breakpoint {
+    display: inline-block;
+    padding: 0 0.5em;
+    font-size: 1.375em;
+  }
+}
+
+.stripe-banner__content__buttons {
+  flex-basis: 16em;
+  padding: 1em;
+  font-size: 0.75em;
+  text-align: center;
+
+  @include breakpoint {
+    display: inline-block;
+    color: $font-color-alternate;
+    font-size: 1em;
+  }
+}
+
+.stripe-banner__content__buttons__link,
+.stripe-banner__content__buttons__link:visited {
+  max-width: 16em;
+  padding: 0.75em;
+  background-color: $theme-color-white;
+  border-radius: 2em;
+  color: $font-color-secondary;
+  font-size: 0.75em;
+  font-weight: 700;
+
+  @include breakpoint {
+    padding: 0.5em 2em;
+    background-color: $font-color-alternate;
+    color: $theme-color-white;
+    font-family: sans-serif;
+    font-size: 1em;
+    font-weight: 300;
+  }
+}
+
+.stripe-banner__close {
+  position: relative;
+  width: 1.5em;
+  height: 1.5em;
+  flex: 0 0 auto;
+  margin-#{$start-direction}: 1em;
+  background-color: $theme-color-white;
+  border-radius: 1em;
+  cursor: pointer;
+
+  @include breakpoint {
+    position: absolute;
+    margin-#{$start-direction}: 0;
+    top: 1em;
+    #{$end-direction}: 1em;
+  }
+}

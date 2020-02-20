@@ -1,0 +1,89 @@
+$credit-bar-bg-color: #510027;
+$credit-bar-color: #ffffff;
+
+.credits {
+  margin-top: 5em;
+  background-color: $credit-bar-bg-color;
+  color: $credit-bar-color;
+  text-align: center;
+
+  @include breakpoint {
+    margin-top: 0;
+    text-align: $start-direction;
+  }
+}
+
+.credits-container {
+  position: relative;
+
+  @include container($max-width);
+  padding: 0.75em 1em;
+
+  @include breakpoint {
+    display: block;
+  }
+}
+
+.credits__block--main {
+  margin: auto 0;
+
+  @include breakpoint {
+    @include span(4 of 5 1/12 $direction);
+    line-height: 2.2em;
+  }
+}
+
+.credits__block--aside {
+  position: absolute;
+  top: -3.5em;
+  #{$end-direction}: 0;
+  #{$start-direction}: 0;
+  display: block;
+
+  @include breakpoint {
+    @include span(1 of 5 1/12 last $direction);
+    position: relative;
+    top: auto;
+    transform: none;
+  }
+}
+
+.credits__item {
+  display: inline-block;
+  margin-#{$end-direction}: 1em;
+  font-size: 0.75em;
+
+  &:last-child {
+    margin-#{$end-direction}: 0;
+  }
+
+  @include breakpoint {
+    display: inline-block;
+    font-size: 0.875em;
+  }
+}
+
+.credits__item__link,
+.credits__item__link:visited {
+  color: $credit-bar-color;
+}
+
+.credits__item__img {
+  border: $border-darken;
+  vertical-align: middle;
+
+  @include breakpoint {
+    border: 0;
+  }
+}
+
+.credits__item--head {
+  display: inline-block;
+  font-weight: bold;
+  @include span(5 of 5 last $direction);
+
+  @include breakpoint {
+    width: auto;
+    float: $start-direction;
+  }
+}

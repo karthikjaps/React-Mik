@@ -1,0 +1,6 @@
+export const REDUCER_NAME = "resetPassword";
+export const SET_VALIDATION_MESSAGES = `${REDUCER_NAME}/SET_VALIDATION_MESSAGES`;
+export const RESET_VALIDATION_MESSAGES = `${REDUCER_NAME}/RESET_VALIDATION_MESSAGES`;
+export const USER_ID_QUERY_STRING_PARAM = "id";
+export const TOKEN_QUERY_STRING_PARAM = "token";
+export const RETURN_URL = "/";

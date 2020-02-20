@@ -1,0 +1,4 @@
+export const REDUCER_NAME = "multiStore";
+export const SET_GROUPS = `${REDUCER_NAME}/SET_GROUPS`;
+export const SET_SELECTED_GROUP = `${REDUCER_NAME}/SET_SELECTED_GROUP`;
+export const SET_CONFIG_STORE = `${REDUCER_NAME}/SET_CONFIG_STORE`;

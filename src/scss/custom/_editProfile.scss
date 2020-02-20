@@ -1,0 +1,59 @@
+$edit-profile__title-background-color: #eff3f6;
+
+.edit-profile {
+  padding: 0 0 2em;
+  background-color: $theme-color-white;
+}
+
+.edit-profile-form {
+  max-width: 48em;
+  font-size: 0.75em;
+}
+
+.edit-profile-form__buttons {
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.edit-profile-form__button {
+  border-radius: 2em;
+  font-size: 1em;
+
+  @include breakpoint {
+    flex: 1 0 auto;
+    font-size: 1em;
+  }
+}
+
+.edit-profile__content {
+  padding: 1em;
+}
+
+.edit-profile-form__section {
+  @include container;
+  padding: 1em 0;
+}
+
+.edit-profile-form__intro {
+  color: $font-color-secondary;
+  font-size: 1em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.edit-profile-form__intro {
+  color: $font-color-secondary;
+}
+
+.form-field--edit-profile {
+  @include span(1 of 2 1/12 $direction);
+
+  &:nth-child(2n) {
+    @include last($direction);
+  }
+}

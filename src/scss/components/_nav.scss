@@ -1,0 +1,267 @@
+$nav-background-color-dark: lighten($theme-color-black, 20%);
+$nav-background-color-light: #eff3f6;
+
+.nav {
+  position: relative;
+  z-index: 6;
+  display: block;
+}
+
+.nav__side-nav {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  bottom: 0;
+  #{$start-direction}: 0;
+  width: 100%;
+  box-shadow: $box-shadow;
+  overflow-x: hidden;
+  overflow-y: auto;
+  transform: translate3d(-102% * $transform-direction, 0, 0);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+  will-change: transform;
+
+  @if $useDarkTheme == true {
+    background-color: $nav-background-color-dark;
+  } @else {
+    background-color: $nav-background-color-light;
+  }
+
+  &.touching {
+    transition: none;
+  }
+
+  @include breakpoint {
+    &::after {
+      display: block;
+      height: 3.5em;
+      content: "";
+    }
+  }
+}
+
+.nav__side-nav--always-open-on-dekstop {
+  @include breakpoint {
+    transform: translate3d(0 * $transform-direction, 0, 0);
+  }
+}
+
+.nav__profile {
+  padding: 1.5em;
+  color: $theme-color-white;
+}
+
+.nav__header {
+  position: relative;
+  overflow: hidden;
+  height: 9em;
+  background: $theme-header-gradient;
+  box-shadow: $box-shadow-bottom;
+
+  @include breakpoint {
+    height: 3.5em;
+    background: transparent;
+    box-shadow: none;
+  }
+}
+
+.nav__header__text__link,
+.nav__header__text__link:visited {
+  color: $theme-color-white;
+}
+
+.nav-close {
+  position: relative;
+}
+
+.nav-close__button {
+  margin: 1em;
+  float: $end-direction;
+}
+
+.nav-close__button::after {
+  padding: 0.3em;
+  content: url("/img/icons/close_icon.svg");
+}
+
+.nav__header__logo {
+  width: 100%;
+  height: 60%;
+}
+
+.nav__header__logo__img {
+  position: absolute;
+  top: 0;
+  #{$end-direction}: 0;
+  bottom: 0;
+  #{$start-direction}: 0;
+  height: 2em;
+  margin: 1em auto;
+}
+
+.nav__header__text {
+  font-size: 0.875em;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.nav__header__text::after {
+  display: inline-block;
+  padding-left: 0.6em;
+  content: url("/img/icons/right_arrow.svg");
+  transform: rotate($transform-direction * 90deg - 90deg);
+}
+
+.nav__profile-image {
+  position: relative;
+  overflow: hidden;
+  width: 3em;
+  height: 3em;
+  background-color: $darken-color-light;
+  border-radius: 50%;
+  box-shadow: $box-shadow-elevated;
+
+  img {
+    position: absolute;
+    top: 50%;
+    #{$start-direction}: 50%;
+    display: block;
+    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    background-color: $theme-color-white;
+    border-radius: 50%;
+    transform: translate(-50% * $transform-direction, -50%);
+  }
+}
+
+.nav__profile-text {
+  font-size: 0.8em;
+}
+
+.nav__profile-title {
+  margin-top: 1em;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.nav__list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.nav__item {
+  padding: 0;
+}
+
+.nav__link {
+  display: block;
+  padding: 1em 0 1em 1.5em;
+  margin-top: 0;
+  border-#{$start-direction}: 2px solid transparent;
+  font-weight: 500;
+  text-decoration: none;
+
+  @if $useDarkTheme == true {
+    color: darken($font-color-light, 10%);
+  } @else {
+    color: $font-color;
+  }
+
+  &:visited {
+    @if $useDarkTheme == true {
+      color: darken($font-color-light, 10%);
+    } @else {
+      color: lighten($font-color, 10%);
+    }
+  }
+
+  &:hover,
+  &:active {
+    @if $useDarkTheme == true {
+      background-color: lighten($nav-background-color-dark, 20%);
+    } @else {
+      background-color: darken($nav-background-color-light, 20%);
+    }
+  }
+
+  &.selected {
+    color: $theme-color-primary;
+    pointer-events: none;
+  }
+}
+
+.nav__body {
+  font-size: 0.875em;
+  transform: translateZ(0);
+}
+
+.nav__section {
+  border-bottom: $border-darken;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.nav__hamburger {
+  position: fixed;
+  top: 0;
+  #{$start-direction}: $side-padding;
+}
+
+.nav__hamburger__label {
+  display: inline-block;
+  overflow: hidden;
+  width: 24px;
+  height: 3.5em;
+  border: 0;
+  cursor: pointer;
+  outline: 0;
+  text-indent: -9999px;
+
+  @if $useDarkTheme == true {
+    background: url("/img/icons/ic_menu_white_24px.svg")
+      center
+      center
+      no-repeat;
+  } @else {
+    background: url("/img/icons/header/burger_menu.svg")
+      center
+      center
+      no-repeat;
+  }
+
+  @include breakpoint {
+    display: none;
+  }
+}
+
+.nav__hamburger__input {
+  display: none;
+
+  &:checked {
+    ~ .nav__side-nav {
+      transform: translateX(0 * $transform-direction);
+    }
+  }
+}
+
+.nav__icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-#{$end-direction}: 1em;
+  fill: $theme-color-white;
+  line-height: 1;
+  vertical-align: middle;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: $theme-color-white;
+  }
+}

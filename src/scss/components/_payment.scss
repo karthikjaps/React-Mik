@@ -1,0 +1,185 @@
+$payment-background-color: #eff3f6;
+$payment-option-color-secondary: #7f8e9a;
+$color-desc: #7f8e9a;
+
+.payment-section__wrapper {
+  @include container;
+  position: relative;
+  display: block;
+  padding: 1em 2em;
+  background: $payment-background-color;
+
+  @include breakpoint {
+    padding: 1em 2em 1em 3em;
+  }
+}
+
+.payment-section__title {
+  padding: 2em 0;
+}
+
+.payment-section__title__text {
+  font-size: 1.5em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.payment-section__shipping-to__span {
+  padding-#{$end-direction}: 0.5em;
+  clear: left;
+  float: $start-direction;
+}
+
+.payment-section__shipping-to {
+  margin: 3em 0;
+}
+
+.payment-section__billing__address__text {
+  color: $theme-color-primary;
+  font-size: 0.75em;
+  text-transform: uppercase;
+}
+
+.radio-group__item__label {
+  width: 100%;
+}
+
+.radio-group__item__label__span--title {
+  display: block;
+  margin-#{$start-direction}: 1em;
+  font-size: 1.25em;
+
+  &:last-child {
+    color: $payment-option-color-secondary;
+    font-size: 0.825em;
+  }
+}
+
+.radio-group__item__label__span--desc {
+  display: block;
+  margin-#{$start-direction}: 1.11em;
+  color: $color-desc;
+  font-size: 1.125em;
+}
+
+.shipping-to__label {
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.payment-section__checkbox {
+  padding: 1em 0;
+}
+
+.payment-section {
+  @include container;
+  @include breakpoint {
+    display: flex;
+  }
+}
+
+.payment-section-column {
+  @include breakpoint {
+    @include span(1 of 2 0 $direction);
+
+    &:nth-child(2n) {
+      @include last($direction);
+    }
+  }
+}
+
+.radio-group__item {
+  position: relative;
+}
+
+.payment-section-column--#{$start-direction} {
+  order: 1;
+}
+
+.payment-section-column--#{$end-direction} {
+  order: 2;
+}
+
+.form-field__checkbox {
+  position: relative;
+}
+
+.payment-section__billing__address {
+  display: none;
+}
+
+.payment-section__type,
+.payment-section__shipping-to {
+  display: inline-block;
+}
+
+.payment-section__checkbox-container {
+  margin-bottom: 2em;
+
+  @include breakpoint {
+    margin-bottom: 1em;
+  }
+}
+
+.payment-form__button {
+  border-radius: 2em;
+  font-size: 1em;
+}
+
+.creditcard-form__section {
+  display: none;
+}
+
+.creditcard-form__section--visible {
+  display: block;
+}
+
+.form-field--payment {
+  width: 100%;
+  margin-#{$end-direction}: 0;
+  margin-bottom: 3em;
+  float: $end-direction;
+}
+
+.radio-group__container--payment {
+  font-size: 0.75em;
+
+  @include breakpoint {
+    @include container;
+  }
+}
+
+.radio-group__text {
+  @include breakpoint {
+    @include span(3 of 5 1/12);
+  }
+}
+
+.radio-group__icons {
+  @include breakpoint {
+    @include span(2 of 5 1/12 last);
+  }
+}
+
+.radio-group__icon {
+  display: inline-block;
+
+  margin-top: 0.5em;
+  margin-#{$start-direction}: 1em;
+
+  @include breakpoint {
+    float: right;
+  }
+}
+
+.radio-group__icon__img {
+  width: auto;
+  height: 35px;
+}
+
+.payment-section__consents {
+  @include container;
+  display: inline-block;
+  width: 100%;
+  font-size: 0.75em;
+}

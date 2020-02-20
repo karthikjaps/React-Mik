@@ -1,0 +1,65 @@
+$credit-bar-bg-color: #510027;
+$credit-bar-color: #ffffff;
+
+.credits {
+  background-color: $credit-bar-bg-color;
+  color: $credit-bar-color;
+  text-align: center;
+
+  @include breakpoint {
+    text-align: $start-direction;
+  }
+}
+
+.credits-container {
+  @include container($max-width);
+  padding: 0.75em 1em;
+
+  @include breakpoint {
+    display: block;
+  }
+}
+
+.credits__block--main {
+  margin: auto 0;
+
+  @include breakpoint {
+    @include span(8 of 11 1/12 $direction);
+  }
+}
+
+.credits__block--aside {
+  @include breakpoint {
+    @include span(3 of 11 1/12 last $direction);
+    display: block;
+  }
+}
+
+.credits__item {
+  margin-#{$end-direction}: 1em;
+  font-size: 0.75em;
+
+  &:last-child {
+    margin-#{$end-direction}: 0;
+  }
+
+  @include breakpoint {
+    display: inline-block;
+    font-size: 0.875em;
+  }
+}
+
+.credits__item__link,
+.credits__item__link:visited {
+  color: $credit-bar-color;
+}
+
+.credits__item__img {
+  width: 60px;
+  vertical-align: middle;
+}
+
+.credits__item--head {
+  display: inline-block;
+  font-weight: bold;
+}

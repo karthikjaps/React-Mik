@@ -1,0 +1,115 @@
+$popup-menu-item-color: #707070;
+
+.profile-popup {
+  position: relative;
+}
+
+.profile-popup__label {
+  line-height: 5;
+}
+
+.profile-popup__label--white {
+  color: $theme-color-white;
+  font-size: 0.75em;
+  line-height: 7;
+}
+
+.profile-popup__content {
+  position: absolute;
+  z-index: 1;
+  top: 5.5em;
+  #{$end-direction}: -1em;
+  display: none;
+  min-width: 12em;
+  padding: 1em 0;
+  background-color: $theme-color-white;
+  box-shadow: $box-shadow;
+  font-size: 0.75em;
+  font-weight: 300;
+
+  &::after,
+  &::before {
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    #{$start-direction}: 50%;
+    width: 0;
+    height: 0;
+    border: solid transparent;
+    content: " ";
+    pointer-events: none;
+  }
+
+  &::after {
+    margin-#{$start-direction}: 40px;
+    border-width: 7px;
+    border-color: transparent;
+    border-bottom-color: $theme-color-white;
+  }
+
+  &::before {
+    margin-#{$start-direction}: 39px;
+    border-width: 8px;
+    border-color: transparent;
+    border-bottom-color: $theme-color-white;
+  }
+}
+
+.profile-popup__content--inverse {
+  #{$end-direction}: auto;
+  #{$start-direction}: 0;
+
+  &::after {
+    margin-#{$start-direction}: auto;
+    margin-#{$end-direction}: 40px;
+    #{$start-direction}:  10%;
+  }
+
+  &::before {
+    margin-#{$start-direction}: auto;
+    margin-#{$end-direction}: 40px;
+    #{$start-direction}:  10%;
+  }
+}
+
+.profile-popup__item {
+  position: relative;
+  text-align: $start-direction;
+}
+
+.profile-popup__nav__item__icon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  #{$start-direction}: 1em;
+  display: block;
+  width: 1em;
+  height: 1em;
+  margin: auto;
+  margin-#{$end-direction}: 1em;
+}
+
+.profile-popup__item__link,
+.profile-popup__item__link:visited {
+  display: block;
+  padding: 0.2em 1em;
+  padding-#{$start-direction}: 3em;
+  color: $popup-menu-item-color;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $darken-color-light;
+  }
+}
+
+.profile-popup:hover .profile-popup__content {
+  display: block;
+}
+
+.profile-popup__item__selected {
+  font-weight: 700;
+}
+
+.header__icon--account:hover .profile-popup__content {
+  display: block;
+}

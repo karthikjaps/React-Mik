@@ -1,0 +1,168 @@
+$form-field__label-color: rgba(0, 0, 0, 0.33);
+$form-field--invalid__label-color: rgba(0, 0, 0, 0.33);
+$error-font-color: $theme-color-primary-light;
+
+.form-field__input--#{$end-direction} {
+  ~ .form-field__label {
+    top: 1em;
+    #{$end-direction}: 0.5em;
+    #{$start-direction}: auto;
+    padding-#{$end-direction}: 1.75em;
+  }
+}
+
+.form-field--invalid {
+  .form-field__label {
+    color: $error-color;
+  }
+}
+
+.form-field__input {
+  padding: 0.75em 0.5em;
+  border: none;
+}
+
+.form-field__input--bordered,
+.form-field__input--bordered:focus {
+  border: 1px solid $darken-color-dark;
+}
+
+.form-field--currency.form-field--invalid {
+  .form-field__label {
+    color: $label-color;
+  }
+
+  .form-field__input-container {
+    &::after {
+      border-bottom-color: $error-color;
+      transform: scaleX(1);
+    }
+  }
+}
+
+.form-field--currency {
+  .form-field__input--has-value,
+  .form-field__input:focus,
+  .form-field__input:active {
+    ~ .form-field__label {
+      display: none;
+    }
+  }
+}
+
+.form-field__label {
+  position: absolute;
+  top: 1.5em;
+  #{$start-direction}: 0.5em;
+  height: 1.714em;
+  margin: auto;
+  color: $form-field__label-color;
+  font-size: 0.875em;
+  font-weight: 400;
+  pointer-events: none;
+
+  @include breakpoint {
+    padding-#{$start-direction}: 0.75em;
+  }
+}
+
+.form-field__error-message {
+  display: block;
+  padding: 0.25em 0.5em;
+  margin-top: 0.25em;
+  color: $font-color;
+}
+
+.no-js {
+  .form-field__input {
+    ~ .form-field__label {
+      transform: translate3d(-0.1em * $transform-direction, -0.75em, 0)
+        scale(0.75);
+    }
+  }
+}
+
+.form__section {
+  @include container;
+}
+
+.form__section__title {
+  margin-top: 2em;
+
+  @include breakpoint {
+    padding-#{$start-direction}: 0.5em;
+  }
+}
+
+.form-field__input-container {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    #{$end-direction}: 0;
+    bottom: 0;
+    #{$start-direction}: 0;
+    border-bottom: 3px solid $label-color;
+    border-radius: $input-border-radius;
+    content: "";
+    pointer-events: none;
+    transform: scaleX(0);
+    transition: transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  }
+}
+
+.form-field--time.form-field--invalid {
+  .form-field__input-container {
+    &::after {
+      border-bottom-color: $error-color;
+      transform: scaleX(1);
+    }
+  }
+}
+
+.form-field--time__input {
+  padding: 0.75em 0.2em 0.75em 0.5em;
+}
+
+.forgot-password-form {
+  @include container(48em);
+}
+
+.image-upload--thumb {
+  &::after {
+    border-radius: 50%;
+  }
+}
+
+.form-field__label--date-picker {
+  transform: translate3d(-0.1em * $transform-direction, -0.75em, 0) scale(0.75);
+}
+
+.form-field__input--phone {
+  padding: 0.25em;
+  direction: ltr;
+}
+
+.form-field__label--phone {
+  @include breakpoint {
+    padding-left: 1em;
+  }
+}
+
+.form-field--material .form-field__input-container::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-bottom: 1px solid #a9a9a9;
+  border-radius: 3px;
+  content: "";
+  pointer-events: none;
+  transform: scaleX(0);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+}
+
+.form-field--material.form-field--invalid .form-field__input-container::after {
+  border-bottom-color: $error-font-color;
+  transform: scaleX(1);
+}

@@ -1,0 +1,144 @@
+.search__field-container {
+  padding: .5em;
+  background: $background-color;
+  
+  @include breakpoint {
+    display: none;
+  }
+}
+  
+.search__field-container__content {
+  display: flex;
+  align-items: center;   
+  padding: .5em 0;
+  border-bottom: 1px solid $theme-color-primary;
+  background: $background-color;
+}
+
+.search__form {
+  display: flex;
+}
+
+.search--mobile { 
+  width:  100%;
+     
+  @include breakpoint {
+    display: none;
+  }
+}
+
+.search-field--mobile {
+  width:  100%;
+}
+
+.search-field__input--mobile {
+  width: 100%;
+  padding: 0 1em;
+  border: none;
+  color: $theme-color-primary;
+  font-size: 1em; 
+}
+  
+.search-field__input--mobile::placeholder {
+  color: $theme-color-primary;
+  text-transform: uppercase;
+}
+  
+.search-field__input--mobile:focus {
+  outline: none;
+}
+
+.search__button--mobile {
+  display: none;
+  width: 22px;
+  padding: 0;
+  border: 0; 
+  background-color: transparent;
+  background-image: url("/img/icons/header/next_search.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  color: transparent;
+}
+
+.search__clear-button {
+  width: 22px;
+  padding: 0;
+  border: 0; 
+  background-color: transparent;
+  background-image: url("/img/icons/header/search_close.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  color: transparent;
+  outline: none;
+
+  @include breakpoint {
+    display: none;
+  }
+}
+
+.search-container--desktop {
+  margin-#{$start-direction}: auto;
+  margin-#{$end-direction}: 1em;
+  color: $font-color-secondary;
+  font-size: 0.75em;
+  list-style: none;
+  text-align: $start-direction;
+}
+  
+.search__wrapper {
+  cursor: pointer;
+}
+  
+.search__button--desktop {
+  width: 20px;
+  padding: 0;
+  border: 0; 
+  background-color: transparent;
+  background-image: url("/img/icons/header/search_icon_pink.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  color: transparent;
+  cursor: pointer;
+}
+
+.search__button--desktop:active {
+  outline: none;
+}
+
+.search-field__input--desktop {
+  padding: .5em;
+  margin: 0 0.5em;
+  border: .1em solid $theme-color-primary;
+  border-radius: 3px;
+  color: $theme-color-primary;
+  font-size: 1em;    
+}
+
+.search-field__input--desktop::placeholder {
+  color: $theme-color-primary;
+  text-transform: uppercase;
+}
+
+.search-field__input--desktop:focus {
+  outline: none;
+}
+
+.search__label {
+  margin: 1em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.search__button--loading,
+.search__button--loading:visited,
+.search__button--loading:hover,
+.search__button--loading:active,
+.search__button--loading[disabled] {
+  background-color: transparent;
+  background-image: url("/img/button-loader.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 66% 66%;
+  box-shadow: none;
+  color: transparent;
+}

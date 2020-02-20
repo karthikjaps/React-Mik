@@ -1,0 +1,65 @@
+.social-links {
+  padding: 0;
+  text-align: center;
+
+  .social-links-item {
+    display: inline-block;
+    margin-#{$end-direction}:1.15em;
+
+    &:last-child {
+      margin-#{$end-direction}:0;
+    }
+  }
+
+  .social-links-item__link {
+    display: inline-block;
+    overflow: hidden;
+    width: 4em;
+    height: 4em;
+    text-indent: -99em;
+    vertical-align: middle;
+
+    &::before {
+      display: inline-block;
+      width: 1.5em;
+      height: 1.5em;
+      content: " ";
+      vertical-align: middle;
+    }
+
+    &.facebook {
+      background: url("/img/icons/social/facebook.svg") no-repeat 50%;
+      background-size: cover;
+    }
+
+    &.instagram {
+      background: url("/img/icons/social/instagram.svg") no-repeat 50%;
+      background-size: cover;
+    }
+
+    &.twitter {
+      background: url("/img/icons/social/twitter.svg") no-repeat 50%;
+      background-size: cover;
+    }
+
+    &.youtube {
+      background: url("/img/icons/social/youtube.svg") no-repeat 50%;
+      background-size: cover;
+    }
+
+    &.snapchat {
+      background: url("/img/icons/social/snapchat.svg") no-repeat 50%;
+      background-size: cover;
+    }
+
+    &.website {
+      background: url("/img/website.svg") no-repeat 50%;
+      background-size: cover;
+    }
+  }
+
+  @include breakpoint {
+    margin-#{$start-direction}:0;
+    text-align: $start-direction;
+  }
+}

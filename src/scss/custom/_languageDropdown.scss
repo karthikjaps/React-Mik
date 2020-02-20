@@ -1,0 +1,80 @@
+$triangle-pointer-color-white-rgba: rgba(255, 255, 255, 0);
+$trianle-pointer-color-grey-rgba: rgba(221, 221, 221, 0);
+$trianle-pointer-color-grey: #ddd;
+
+.language-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.language-dropdown__label {
+  padding: 1em 0.5em;
+  border: none;
+  color: $theme-color-white;
+  font-size: 0.75em;
+  font-weight: 700;
+}
+
+/* CSS Arrow */
+.language-dropdown__label::after {
+  display: inline-block;
+  padding: 3px;
+  border: solid currentColor;
+  border-width: 0 1px 1px 0;
+  content: "";
+  transform: rotate(45deg) translateX(5px) translateY(-9px);
+}
+
+/* Dropdown Content (Hidden by Default) */
+.language-dropdown__content {
+  position: absolute;
+  z-index: 1;
+  display: none;
+  min-width: 4em;
+  background-color: $theme-color-white;
+  box-shadow: $box-shadow;
+
+  font-size: 0.75em;
+  font-weight: 700;
+}
+
+/* Beginning of Triangle pointer CSS, see http://www.cssarrowplease.com/ */
+.language-dropdown__content:after,
+.language-dropdown__content:before {
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  #{$start-direction}:50%;
+  width: 0;
+  height: 0;
+  border: solid transparent;
+  content: " ";
+  pointer-events: none;
+}
+
+.language-dropdown__content:after {
+  margin-#{$start-direction}:-7px;
+  border-width: 7px;
+  border-color: $triangle-pointer-color-white-rgba;
+  border-bottom-color: $theme-color-white;
+}
+
+.language-dropdown__content:before {
+  margin-#{$start-direction}:-8px;
+  border-width: 8px;
+  border-color: $trianle-pointer-color-grey-rgba;
+  border-bottom-color: $trianle-pointer-color-grey;
+}
+/* End of Triangle pointer CSS */
+
+.language-dropdown__link {
+  display: block;
+  padding: 0.2em 0.3em;
+  color: $theme-color-white;
+  text-decoration: none;
+}
+
+/* Show the dropdown menu on hover */
+.language-dropdown:hover .language-dropdown__content {
+  display: block;
+}

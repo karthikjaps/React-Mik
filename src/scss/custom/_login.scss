@@ -1,0 +1,202 @@
+$login-card__content__color: #7f8e9a;
+
+.login-card {
+  padding: 0 0 2em;
+  background-color: $theme-color-white;
+}
+
+.login-card__title {
+  padding: 0.75em 0.5em;
+  margin: 0;
+  background-image: $theme-header-gradient;
+  color: $theme-color-white;
+  font-weight: 400;
+  text-transform: uppercase;
+
+  @include breakpoint {
+    text-align: center;
+  }
+}
+
+.login-card__content__subheading {
+  font-weight: 700;
+  text-transform: uppercase;
+
+  @include breakpoint {
+    color: $login-card__content__color;
+    font-size: 0.75em;
+    font-weight: 400;
+    text-transform: none;
+  }
+}
+
+.login-card__header {
+  position: relative;
+}
+
+.form__buttons__button--login {
+  border-radius: 2em;
+}
+
+.login-card__content {
+  padding: 1em;
+}
+
+.login-card__content--columns {
+  @include breakpoint {
+    @include container;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+}
+
+.login-card__content--top {
+  @include breakpoint {
+    text-align: center;
+  }
+}
+
+.login-card__content-section {
+  margin-bottom: 2em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include breakpoint {
+    @include span(1 of 2 1/12 $direction);
+    margin-bottom: 0;
+
+    &:nth-child(2n) {
+      @include last($direction);
+    }
+  }
+}
+
+.login-form__section {
+  @include container;
+}
+
+.login-form__intro,
+.login-oauth__intro {
+  color: $login-card__content__color;
+  font-size: 0.75em;
+}
+
+.login-form__intro {
+  @include breakpoint {
+    display: none;
+  }
+}
+
+.login-form-links {
+  @include container;
+  display: flex;
+  font-size: 0.75em;
+  line-height: 1;
+}
+
+.login-form-links__item {
+  @include span(1 of 2 $direction);
+
+  &:nth-child(2n) {
+    @include last($direction);
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: $end-direction;
+  }
+}
+
+.login-form-links__item--forgot-password {
+  text-decoration: underline;
+}
+
+.login-form__register-links {
+  display: block;
+  margin-top: 2em;
+  font-size: 0.75em;
+  text-align: center;
+
+  @include breakpoint {
+    text-align: $start-direction;
+  }
+}
+
+.login-form__register-links__label {
+  margin-#{$end-direction}:0.5em;
+}
+
+.login-form__register-links__link {
+  font-weight: 700;
+  text-transform: uppercase;
+
+  &::after {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-#{$start-direction}:0.5em;
+    background: url("/img/icons/arrow_right.svg") no-repeat 50% 50%;
+    background-size: 100%;
+    content: "";
+    line-height: 1;
+    vertical-align: middle;
+  }
+}
+
+.login-oauth-icons__list {
+  @include container;
+  padding: 0;
+
+  @include breakpoint {
+    display: inline-block;
+  }
+}
+
+.login-oauth-icons__list-item {
+  margin-#{$end-direction}:0.5em;
+  float: $start-direction;
+
+  &:last-child {
+    margin-#{$end-direction}:0;
+  }
+}
+
+.login-oauth-icons__list-item__img {
+  display: inline-block;
+  width: 3em;
+  height: auto;
+  cursor:pointer;
+}
+
+.login-card__separator {
+  position: relative;
+  margin: 1em 0;
+  text-align: center;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: calc(50% - 3em);
+    height: 1px;
+    margin: auto;
+    border-top: 1px solid $login-card__content__color;
+    content: "";
+  }
+
+  &::before {
+    #{$start-direction}:0;
+  }
+
+  &::after {
+    #{$end-direction}:0;
+  }
+}
+
+.login-card__separator__span {
+  padding: 1em;
+  background-color: $theme-color-white;
+  font-weight: 700;
+  text-transform: uppercase;
+}

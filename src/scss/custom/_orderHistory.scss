@@ -1,0 +1,200 @@
+.order-history__content {
+  color: $font-color-secondary;
+}
+
+.order-history__loading {
+  position: absolute;
+  top: 0;
+  #{$end-direction}: 0;
+  bottom: 0;
+  #{$start-direction}: 0;
+  background: url("/img/button-loader.svg") no-repeat 50% 50%;
+  background-size: 3em;
+}
+
+.order-history__content__list {
+  @include container;
+}
+
+.order-history__content__list__item {
+  margin: 2em 0.5em;
+}
+
+.order-history-item {
+  @include container;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.order-history-item__field {
+  margin-bottom: 1em;
+  line-height: 1.5;
+  text-align: $start-direction;
+  
+  @include span(1 of 2 1/12 $direction);
+  
+  &:nth-child(2n) {
+    @include span(1 of 2 1/12 last $direction);
+  }
+  
+  @include breakpoint {
+    @include span(1 of 3 1/12 $direction);
+
+    &:nth-child(2n) {
+      @include span(1 of 3 1/12 $direction);
+    }
+
+    &:nth-child(3n) {
+      @include span(1 of 3 1/12 last $direction);
+    }
+  }
+}
+
+.order-history-item__field--last {
+  margin-bottom: 0;
+}
+
+.order-history-item__field__label {
+  display: block;
+  font-size: 0.625em;
+  text-transform: uppercase;
+
+  @include breakpoint {
+    font-size: 0.875em;
+  }  
+}
+
+.order-history-item__field__value {
+  display: inline-block;
+  font-size: 0.75em;
+  font-weight: 500;
+
+  @include breakpoint {
+    font-size: 1.25em;
+  }  
+}
+
+.breakdown-toggle {
+  display: inline-block;
+  color: $theme-color-primary;
+  cursor: default;
+  font-size: 0.75em;
+
+  @include breakpoint {
+    font-size: 1.25em;
+  }  
+}
+
+.breakdown-toggle::after {
+  padding: 2px;
+  margin: 0 0.5em;
+  border: solid $theme-color-primary;
+  border-width: 0 1px 1px 0;
+  content: "";
+  float: $end-direction;
+  transform: translateY(9px) rotate(45deg);
+  transition: transform 0.2s ease-out;
+  vertical-align: middle;
+
+  @include breakpoint {
+    padding: 3px;
+    border-width: 0 2px 2px 0;
+    transform: translateY(8px) rotate(45deg);
+  }  
+}
+
+.breakdown-toggle--open::after {
+  transform: translateY(12px) rotate(225deg);
+}
+
+.breakdown-section__list {
+  @include breakpoint {
+    @include container;
+  }
+}
+
+.breakdown-section__list__item {
+  @include container;
+  display: flex;
+  align-items: center;
+  
+  @include breakpoint {
+    margin-#{$start-direction}: 0;
+    @include span(1 of 2 1/12 $direction);
+
+    &:nth-child(2n) {
+      @include span(1 of 2 1/12 last $direction);
+    }
+  }
+}
+
+.breakdown-section__list__item__thumb {
+  @include span(2 of 5 1/12 $direction);
+}
+
+.breakdown-section__list__item__thumb__img {
+  display: block;
+  width: 100%;
+}
+
+.breakdown-section__list__item__details {
+  @include span(3 of 5 1/12 last $direction);
+  font-size: 0.75em;
+  line-height: 1;
+
+  @include breakpoint {
+    font-size: 1.125em;
+  }  
+}
+
+.breakdown-section__list__item__details__title {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+.breakdown-section__list__item__details__price {
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: 500;
+}
+
+.breakdown-section__list__item__details__quantity {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+.order-history-no-results {
+  margin: 2em 1em; 
+  text-align: center;    
+
+  @include breakpoint {
+    text-align: left;
+  }
+}
+
+.order-history-no-results__content {
+  padding-bottom: 2em;
+}
+
+.order-history-no-results__icon {
+  margin: 1em 0;
+}
+
+.order-history-no-results__summary {
+  color: $disabled-color;
+  font-size: 0.875;
+  
+  @include breakpoint {
+    font-size: 1.25em;
+  }
+}
+
+.order-history-no-results__button {
+  width: 100%;
+  border-radius: 2em;
+
+  @include breakpoint {
+    width: auto;
+    max-width: 100%;
+  }
+}

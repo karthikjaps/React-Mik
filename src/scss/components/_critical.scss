@@ -1,0 +1,94 @@
+html {
+  position: relative;
+  background-color: $background-color;
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+}
+
+body,
+select,
+input,
+textarea {
+  color: $font-color;
+  direction: $direction;
+  font-size: 1em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  text-align: $start-direction;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: $theme-color-secondary;
+  text-decoration: none;
+
+  &:visited {
+    color: $theme-color-secondary;
+  }
+
+  &:active {
+    color: lighten($theme-color-secondary, 10%);
+  }
+
+  &.disabled {
+    color: $disabled-color;
+    pointer-events: none;
+  }
+
+  @include breakpoint {
+    &:hover {
+      color: lighten($theme-color-secondary, 10%);
+    }
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 400;
+}
+
+h1 {
+  margin-top: 0.333em;
+  line-height: 1.125;
+}
+
+h3 {
+  font-weight: 700;
+}
+
+strong {
+  font-weight: 500;
+}
+
+#root {
+  min-height: calc(100vh - 7em);
+}
+
+.main {
+  margin-top: 3.5em;
+
+  @include breakpoint {
+    margin-top: 8.75em;
+  }
+}
+
+.main__side-nav--always-open-on-dekstop {
+  @include breakpoint {
+    margin-#{$start-direction}: 16em;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}

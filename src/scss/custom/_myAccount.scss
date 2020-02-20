@@ -1,0 +1,119 @@
+$my-account__nav_item__link-color: #7f8e9a;
+$my-account__nav__item-border-top: #eff3f6;
+
+.my-account-section {
+  @include container;
+}
+
+.my-account__header {
+  position: relative;
+}
+
+.my-account__title {
+  padding: 0.75em 0.5em;
+  margin: 0 -2%; // TODO: ugly hack
+  background-color: $edit-profile__title-background-color;
+  color: $theme-color-black;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+
+  @include breakpoint {
+    background-color: $theme-color-white;
+  }
+}
+
+.my-account-section__aside {
+  @include breakpoint {
+    @include span(1 of 4 1/12 $direction);
+  }
+}
+
+.my-account-section__main {
+  @include breakpoint {
+    @include span(3 of 4 1/12 last $direction);
+  }
+}
+
+.my-account__nav__list {
+  display: flex;
+  padding: 0;
+  border-bottom: 1px solid $my-account__nav__item-border-top;
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    height: 0;
+  }
+
+  @include breakpoint {
+    display: block;
+  }
+}
+
+.my-account__nav__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.5em;
+  cursor: pointer;
+  opacity: 0.8;
+
+  @include breakpoint {
+    display: block;
+    padding: 0;
+    border-top: 1px solid $my-account__nav__item-border-top;
+  }
+}
+
+.my-account__nav__item--active {
+  border-bottom: 1px solid $theme-color-black;
+  color: $theme-color-black;
+  opacity: 1;
+
+  @include breakpoint {
+    border-bottom: 0;
+  }
+}
+
+.my-account__nav__item__icon {
+  display: block;
+  width: 1em;
+  height: 1em;
+  margin: auto;
+
+  @include breakpoint {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    #{$start-direction}:0;
+    margin-#{$end-direction}:1em;
+  }
+}
+
+.my-account__nav__item__link {
+  display: block;
+  color: $my-account__nav_item__link-color;
+  font-size: 0.625em;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  &:visited {
+    color: $my-account__nav_item__link-color;
+  }
+
+  @include breakpoint {
+    padding: 1em;
+    padding-#{$start-direction}:2em;
+    font-size: 1em;
+    text-align: $start-direction;
+  }
+}
+
+.my-account__nav__item__link--active,
+.my-account__nav__item__link--active:visited {
+  color: $theme-color-black;
+  font-weight: 500;
+}

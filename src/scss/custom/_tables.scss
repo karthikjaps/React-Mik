@@ -1,0 +1,29 @@
+.table__head {
+  &::before {
+    padding: 1em 0.5em;
+  }
+}
+
+.table__cell {
+  padding: 1em 0.5em;
+}
+
+.table__cell__icon {
+  display: inline;
+  margin-#{$end-direction}:1em;
+}
+
+.pagination__info {
+  margin-top: 1em;
+  text-align: center;
+}
+
+.pagination__buttons {
+  text-align: center;
+}
+
+.pagination--button {
+  padding: 1em;
+  margin: 1em 0.2em;
+  font-size: 0.8em;
+}

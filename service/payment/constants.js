@@ -1,0 +1,11 @@
+export const PAYFORT_MOBILE_PAYMENT_METHOD = "payfort_mobile";
+export const CASH_ON_DELIVERY_PAYMENT_METHOD = "phoenix_cashondelivery";
+export const availablePaymentMethods = [
+  PAYFORT_MOBILE_PAYMENT_METHOD,
+  CASH_ON_DELIVERY_PAYMENT_METHOD
+];
+export const PAYFORT_STATUS_TOKENIZATION_SUCCESS = "18";
+export const PAYFORT_STATUS_PURCHASE_SUCCESS = "14";
+export const PAYFORT_STATUS_ON_HOLD = "20";
+export const PAYFORT_COMMAND_TOKENIZATION = "TOKENIZATION";
+export const PAYFORT_COMMAND_PURCHASE = "PURCHASE";

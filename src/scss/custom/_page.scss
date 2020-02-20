@@ -1,0 +1,61 @@
+.page__subtitle__wrapper {
+  max-width: 90rem;
+  margin: 0 auto;
+}
+
+.page__subtitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 calc(2% + 8px);
+
+  @include breakpoint {
+    margin: 0 2.8%;
+  }
+}
+
+.page__subtitle::before,
+.page__subtitle::after {
+  height: 2px;
+  flex: 1 1;
+  margin: auto;
+  background-image: $theme-header-gradient--horizontal;
+  content: "";
+}
+
+.page__subtitle::after{
+  background-image: $theme-header-gradient--horizontal-inverse;
+}
+
+.page__subtitle__text {
+  padding: 0 0.5em;
+  color: $theme-color-black;
+  font-family: $title-font-family;
+  letter-spacing: 0.1em;
+  line-height: 4;
+  text-transform: uppercase;
+
+  @if $direction == rtl {
+    letter-spacing: 0;
+  }
+
+  @include breakpoint {
+    padding: 0 1.5em;
+    letter-spacing: 0.2em;
+
+    @if $direction == rtl {
+      letter-spacing: 0;
+    }
+  }  
+}
+
+.page-content__title {
+  margin-top: 1.5em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.page-content {
+  @include container($max-width);
+  padding: 1em 0;
+}

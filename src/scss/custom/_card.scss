@@ -1,0 +1,38 @@
+.card__pre-header {
+  height: 3.5em;
+
+  @include breakpoint {
+    display: none;
+  }
+}
+
+.card__pre-header__link {
+  display: inline-block;
+  color: $font-color-alternate;
+  font-size: 0.715em;
+  font-weight: 700;
+  line-height: 3.5;
+  text-decoration: underline;
+
+  &:visited {
+    color: $font-color-alternate;
+  }
+
+  &:active,
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &::before {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-#{$end-direction}:0.5em;
+    margin-bottom: 0.4em;
+    background: url("/img/icons/arrow_left.svg") no-repeat 50% 50%;
+    background-size: 100%;
+    content: "";
+    line-height: 1;
+    vertical-align: middle;
+  }
+}

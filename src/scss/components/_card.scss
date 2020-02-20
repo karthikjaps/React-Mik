@@ -1,0 +1,100 @@
+.card {
+  position: relative;
+  padding: 1em;
+  margin: 0 auto;
+  background-color: $theme-color-white;
+  box-shadow: $box-shadow;  
+  overflow-y: auto;
+}
+
+.card--wide {
+  max-width: 72em;
+}
+
+.card--#{$end-direction} {
+  text-align: $start-direction;
+}
+
+.card--two-column {
+  @include container;
+
+  .card--two-column__column {
+    @include span(1 of 2 $direction);
+
+    &:nth-child(2n) {
+      @include last($direction);
+    }
+  }
+}
+
+.card__title {
+  padding-#{$end-direction}:0.75em;
+  margin-top: 0;
+  font-weight: 400;
+}
+
+.card__buttons {
+  text-align: center;
+}
+
+.card__buttons__button {
+  width: 100%;
+
+  @include breakpoint {
+    max-width: 24em;
+  }
+}
+
+.card-close {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  width: 3.5em;
+  height: 3.5em;
+  #{$end-direction}:0;
+}
+
+.card-close__button {
+  display: inline-block;
+  color: $font-color;
+  
+  &:active, &:hover, &:visited {
+    color: $font-color;
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin: auto;
+    content: '\00D7';
+    font-family: none;
+    font-size: 1.5em;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    #{$end-direction}:0;
+    #{$start-direction}:0;
+  }
+}
+
+.card__content--wide {
+  @include container(72em);
+}
+
+.card__content__ctas {
+  margin-bottom: 1em;
+  text-align: $end-direction;
+}
+
+.card__content__ctas__button {
+  width: 100%;
+  font-size: 0.8em;
+
+  @include breakpoint {
+    width: auto;
+  }
+}

@@ -1,0 +1,265 @@
+.desktop-menu-section {
+  position: absolute;
+  z-index: 8;
+  top: 5em;
+  display: none;
+  height: 3.75em;
+  background-color: $theme-color-white;
+  box-shadow: $box-shadow;
+  #{$end-direction}:0;
+  #{$start-direction}:0;
+
+  @include breakpoint {
+    display: block;
+  }
+
+  .modal__overlay {
+    opacity: 0;
+  }
+
+  .modal__overlay--visible {
+    opacity: 0;
+  }
+}
+
+.desktop-menu-container {
+  @include container($max-width);
+  position: relative;
+  display: flex;
+  height: 100%;
+  flex-direction:row;
+  align-items: center;
+
+  @include breakpoint {
+    padding-#{$start-direction}:$side-padding;
+  }
+
+  @include breakpoint(max-width) {
+    padding-#{$start-direction}:0;
+  }
+}
+
+.desktop-menu {
+  color: $font-color-secondary;
+  font-size: 0.75em;
+  list-style: none;
+  text-align: $start-direction;
+}
+
+.desktop-menu__item {
+  padding: 0;
+  line-height: 1;
+
+  @include breakpoint {
+    display: inline-block;
+    margin-#{$end-direction}:3em;
+    float: $start-direction;
+
+    &:last-child {
+      margin-#{$end-direction}:0;
+
+      &::after {
+        border: 0;
+      }
+    }
+  }
+}
+
+.desktop-menu__item--visible {
+  font-weight: 700;
+}
+
+.desktop-menu__item__label,
+.desktop-menu__item__label:visited {
+  position: relative;
+  z-index: 10;
+  display: block;
+  width: 100%;
+  padding: 1em 0;
+  color: $menu-icon-grey;
+  cursor: pointer;
+  float: $start-direction;
+  text-transform: uppercase;
+}
+
+.desktop-menu__item__label::after {
+  padding: 3px;
+  border: solid currentColor;
+  border-width: 0 1px 1px 0;
+  content: "";
+  float: $end-direction;
+  transform: translateY(0) rotate(45deg);
+  vertical-align: middle;
+
+  @include breakpoint {
+    position: relative;
+    display: inline-block;
+    margin: 0 1em;
+  }
+}
+
+.desktop-menu__item--visible > .desktop-menu__item__label::after {
+  transform: translateY(4px) rotate(-135deg);
+}
+
+.desktop-menu__item__label--no-children::after {
+  display: none;
+}
+
+.desktop-menu__item__toggle {
+  display: none;
+}
+
+.desktop-item__new__tag {
+  padding: 3px 6px;
+  background-color: $theme-color-primary;
+  color: $theme-color-white;
+  text-transform: uppercase;
+}
+
+.desktop-submenu-wrapper {
+  position: absolute;
+  z-index: 9;
+  #{$start-direction}: 1em;
+  display: none;
+  overflow: hidden;
+  max-width: 80%;
+  margin-top: 4.5em;
+  background-color: $theme-color-white;
+  border-radius: 4px;
+  box-shadow: $box-shadow-elevated;
+}
+
+.desktop-submenu {
+  z-index: 11;
+  padding: 0;
+  font-weight: 400;
+
+  @include breakpoint {
+    margin-#{$start-direction}:$side-padding;
+  }
+
+  @include breakpoint(max-width) {
+    margin-#{$start-direction}:0;
+  }
+}
+
+.desktop-menu__item--visible > .desktop-submenu-wrapper {
+  display: flex;
+}
+
+.desktop-submenu--two-rows {
+  @include breakpoint {
+    flex-wrap: wrap;
+  }
+}
+
+.desktop-submenu--has-subsubitems {
+  display: flex;
+}
+
+.desktop-submenu--images {
+  display: flex;
+  max-width: 24em;
+  flex: 0 0 auto;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.desktop-submenu--horizontal {
+  max-width: none;
+  flex-direction: row;
+}
+
+.desktop-submenu__item__link--image {
+  display: block;
+  padding: 1em;
+}
+
+.desktop-submenu__item__link__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.desktop-submenu__item__link--image__title,
+.desktop-submenu__item__link--image__cta {
+  display: block;
+  padding: 1em 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.desktop-submenu__item__link--image__title {
+  color: $theme-color-black;
+  font-size: 1.125em;
+  font-weight: 500;
+}
+
+.desktop-submenu__item__link--image__cta {
+  color: $theme-color-primary;
+  text-decoration: underline;
+}
+
+.desktop-submenu-item__container {
+  @include breakpoint {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.desktop-submenu__item--two-rows {
+  @include breakpoint {
+    flex: 1 0 21%;
+  }
+}
+
+.desktop-submenu__item__label,
+.desktop-submenu__item__label:visited {
+  display: block;
+  color: $theme-color-black;
+  font-weight: 500;
+  text-transform: uppercase;
+
+  @include breakpoint {
+    min-width: 18em;
+    padding: 1em;
+    margin: 1em 1em 0;
+    text-transform: none;
+  }
+}
+
+.desktop-submenu__item__label--has-subsubitems {
+  @include breakpoint {
+    min-width: auto;
+    padding: 1em;
+    margin: 1em;
+    border-bottom: 1px solid $darken-color;
+  }
+}
+
+.desktop-submenu__item__toggle {
+  display: none;
+}
+
+.desktop-subsubmenu {
+  padding: 0em 2em 1em;
+  font-weight: 400;
+}
+
+.desktop-subsubmenu__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 0;
+
+  // TODO: not BEM
+  a {
+    color: $font-color-secondary;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

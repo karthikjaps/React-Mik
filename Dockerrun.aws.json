@@ -1,0 +1,19 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Image": {
+    "Name": "itcan/MikyajyReact",
+    "Update": "true"
+  },
+  "Ports": [
+    {
+      "ContainerPort": "3000",
+      "HostPort": 80
+    },
+    {
+      "ContainerPort": "6001",
+      "HostPort": 443
+    }
+  ],
+  "Volumes": [
+  ]
+}

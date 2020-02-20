@@ -1,0 +1,366 @@
+$skeleton-background-color: $darken-color-light;
+$success-message-font-color: $font-color-link-secondary;
+$error-font-color: $theme-color-primary-light;
+
+.shipment-address-section {
+  @include container;
+}
+
+.shipment-address-list__title {
+  width: 50%;
+  color: $font-color-secondary;
+  float: $start-direction;
+  text-transform: uppercase;
+
+  @include breakpoint {
+    display: none;
+  }
+}
+
+.shipment-address-list__link {
+  @include span(2 of 5 last $direction);
+  font-size: 0.75em;
+  font-weight: 500;
+  text-align: $end-direction;
+  text-transform: uppercase;
+
+  @include breakpoint {
+    @include span(1 of 1 last $direction);
+    font-size: 0.75em;
+    text-align: $start-direction;
+  }
+}
+
+.shipment-address-list__section {
+  @include container;
+  padding-top: 3em;
+}
+
+.shipment-address-list__item {
+  @include container;
+  padding-bottom: 2em;
+}
+
+.shipment-address-list__item__column--#{$start-direction} {
+  @include span(2 of 3 $direction);
+
+  @include breakpoint {
+    @include span(1 of 2 $direction);
+  }
+}
+
+.shipment-address-list__item__column--#{$end-direction} {
+  @include span(1 of 3 last $direction);
+  text-align: $end-direction;
+
+  @include breakpoint {
+    @include span(1 of 2 last $direction);
+    text-align: $start-direction;
+  }
+}
+
+.shipment-address-list__item__line {
+  display: block;
+  font-size: 0.75em;
+
+  @include breakpoint {
+    font-size: 1.25em;
+  }
+}
+
+.shipment-address-list__item__line--small-font {
+  margin-top: 0.5em;
+  font-size: 0.625em;
+
+  @include breakpoint {
+    font-size: 0.75em;
+  }
+}
+
+.shipment-address-list__item__link {
+  margin-top: 0.5em;
+  color: $font-color-secondary;
+  font-size: 0.75em;
+  font-weight: 500;
+
+  &:visited {
+    color: $font-color-secondary;
+  }
+}
+
+.shipment-address-list__item__link::before {
+  display: inline-block;
+  padding-#{$end-direction}: 0.5em;
+  content: url("/img/icons/edit.svg");
+  vertical-align: middle;
+}
+
+.shipment-address-list__fields {
+  padding-top: 2em;
+
+  @include breakpoint {
+    padding-top: 0;
+  }
+}
+
+.radio-group__item--shipment-address-field {
+  display: block;
+}
+
+.address-radio {
+  @include container;
+}
+
+.address-radio__input {
+  margin: 0.3em 0.5em;
+  float: $start-direction;
+}
+
+.address-radio__label {
+  float: $start-direction;
+}
+
+.address-radio__label__line {
+  display: block;
+  font-size: 0.75em;
+
+  @include breakpoint {
+    font-size: 1em;
+  }
+}
+
+.address-radio__label__line--skeleton {
+  display: block;
+  width: 60%;
+  height: 1.5em;
+  margin-bottom: 0.5em;
+  background-color: $skeleton-background-color;
+
+  &:last-child {
+    width: 40%;
+  }
+}
+
+.address-radio__link {
+  margin-top: 0.5em;
+  color: $font-color-secondary;
+  font-size: 0.75em;
+  font-weight: 500;
+  text-transform: uppercase;
+
+  &:visited {
+    color: $font-color-secondary;
+  }
+}
+
+.address-radio__link::before {
+  display: inline-block;
+  padding-#{$end-direction}: 0.5em;
+  content: url("/img/icons/edit.svg");
+  vertical-align: middle;
+}
+
+.shipment-address-form {
+  font-size: 0.75em;
+}
+
+.shipment-address-form__title {
+  @include span(3 of 5 $direction);
+  color: $font-color-secondary;
+  font-size: 1em;
+  text-transform: uppercase;
+
+  @include breakpoint {
+    @include span(1 of 1 last $direction);
+    padding: 1em 0;
+    font-size: 1.25em;
+  }
+}
+
+.shipment-address-form__section {
+  padding: 0 0.5em;
+}
+
+.form-field--shipment-address {
+  @include span(1 of 2 1/12 $direction);
+  font-size: 1em;
+
+  &:nth-child(2n) {
+    @include last($direction);
+  }
+
+  .form-field__label {
+    font-size: 1em;
+  }
+}
+
+.form-field--shipment-address__checkbox {
+  @include span(1 of 1 last $direction);
+
+  @include breakpoint {
+    font-size: 0.875em;
+  }
+}
+
+.form-field--shipment-address__buttons {
+  @include span(1 of 1 last $direction);
+  padding: 1em 0;
+}
+
+.form__buttons__button--save {
+  border-radius: 3em;
+  font-size: 1em;
+  text-transform: uppercase;
+
+  @include breakpoint {
+    font-size: 0.85em;
+  }
+}
+
+.shipment-address-form__buttons {
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.shipment-address-form__buttons__button--cancel {
+  order: 2;
+  border-radius: 3em;
+  font-size: 1em;
+
+  @include breakpoint {
+    font-size: 0.85em;
+  }
+}
+
+.shipment-address-form__buttons__button--save {
+  order: 1;
+
+  @include breakpoint {
+    order: 3;
+  }
+}
+
+.shipment-address-form__buttons__button--save[disabled],
+.shipment-address-form__buttons__button--save.disabled {
+  background-color: $theme-color-primary;
+  color: $background-color;
+  opacity: 0.33;
+}
+
+.phone-code-buttons__container {
+  display: flex;
+  margin-top: 1.5em;
+}
+
+.shipment-address-profile__section {
+  @include container;
+}
+
+.phone-section__buttons__button--send {
+  padding: 0.75em 0.5em;
+  margin: 0;
+  border-radius: 3em;
+  color: $theme-color-primary;
+  outline: none;
+  text-transform: initial;
+}
+
+.phone-section__buttons__button--send[disabled],
+.phone-section__buttons__button--send.disabled {
+  background-color: $background-color;
+  color: $theme-color-primary;
+  opacity: 0.33;
+}
+
+.phone-section__buttons__button--submit {
+  padding: 0.75em 0.5em;
+  border-radius: 3em;
+  color: $theme-color-primary;
+  text-transform: initial;
+}
+
+.phone-section__buttons__button--skip {
+  padding: 0.5em;
+  border: none;
+  color: $font-color-alternate;
+  text-transform: initial;
+}
+
+.phone-section__success-message {
+  color: $success-message-font-color;
+}
+
+.phone-section__phone-verified {
+  padding: 0.5em;
+}
+
+.phone-section__success-message--phone-verified {
+  font-weight: 400;
+}
+
+.phone-section__success-message--phone-verified::before {
+  display: inline-block;
+  width: 1.15em;
+  height: 1.15em;
+  margin-#{$end-direction}: 0.5em;
+  background: url("/img/icons/newsletter_success.svg") no-repeat 50% 50%;
+  background-size: 100%;
+  content: "";
+  line-height: 1;
+  vertical-align: text-bottom;
+}
+
+.phone-section__buttons__button--send-fail {
+  opacity: 0.7;
+}
+
+.form-field__error-message.form-field__error-message--invalid {
+  padding-#{$start-direction}: 0;
+}
+
+.form-field__error-message--invalid {
+  border: none;
+  background: $theme-color-white;
+  color: $error-font-color;
+}
+
+.form-field__error-message--invalid::before {
+  display: inline-block;
+  width: 1.25em;
+  height: 1.25em;
+  margin-#{$end-direction}: 0.5em;
+  background: url("/img/icons/error.svg") no-repeat 50% 50%;
+  background-size: 100%;
+  content: "";
+  line-height: 1;
+  vertical-align: text-bottom;
+}
+
+.phone-section__success-message--phone-verification {
+  font-size: 0.8em;
+  font-weight: 400;
+}
+
+.phone-section__success-message--phone-verification::before {
+  display: inline-block;
+  width: 1.15em;
+  height: 1.15em;
+  margin-#{$end-direction}: 0.5em;
+  background: url("/img/icons/error_icon.svg") no-repeat 50% 50%;
+  background-size: 100%;
+  content: "";
+  line-height: 1;
+  vertical-align: text-bottom;
+}
+
+.react-phone-number-input__phone {
+  min-width: 0;
+  flex: 1;
+  direction: ltr;
+  text-align: left;
+}

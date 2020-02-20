@@ -1,0 +1,38 @@
+@font-face {
+  
+  font-family: "Helvetica Neue LT Pro";
+  font-style: normal;
+  font-weight: 500;
+  src: url("./fonts/HelveticaNeueLTPro-Md.eot");
+  src: url("./fonts/HelveticaNeueLTPro-Md.eot?#iefix")
+    format("embedded-opentype"),
+    url("./fonts/HelveticaNeueLTPro-Md.woff2") format("woff2"),
+    url("./fonts/HelveticaNeueLTPro-Md.woff") format("woff"),
+    url("./fonts/HelveticaNeueLTPro-Md.ttf") format("truetype");
+}
+
+@font-face {
+  
+  font-family: "Helvetica Neue LT Pro";
+  font-style: normal;
+  font-weight: 300;
+  src: url("./fonts/HelveticaNeueLTPro-Lt.eot");
+  src: url("./fonts/HelveticaNeueLTPro-Lt.eot?#iefix")
+    format("embedded-opentype"),
+    url("./fonts/HelveticaNeueLTPro-Lt.woff2") format("woff2"),
+    url("./fonts/HelveticaNeueLTPro-Lt.woff") format("woff"),
+    url("./fonts/HelveticaNeueLTPro-Lt.ttf") format("truetype");
+}
+
+@font-face {
+  
+  font-family: "Helvetica Neue LT Pro";
+  font-style: normal;
+  font-weight: bold;
+  src: url("./fonts/HelveticaNeueLTPro-Bd.eot");
+  src: url("./fonts/HelveticaNeueLTPro-Bd.eot?#iefix")
+    format("embedded-opentype"),
+    url("./fonts/HelveticaNeueLTPro-Bd.woff2") format("woff2"),
+    url("./fonts/HelveticaNeueLTPro-Bd.woff") format("woff"),
+    url("./fonts/HelveticaNeueLTPro-Bd.ttf") format("truetype");
+}

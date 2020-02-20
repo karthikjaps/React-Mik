@@ -1,0 +1,144 @@
+.slick-prev,
+.slick-next {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  display: block;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin: auto;
+  border: 0;
+  background: transparent;
+  color: $theme-color-tertiary;
+  cursor: pointer;
+  font-size: 0;
+  line-height: 0;
+  outline: none;
+  transform: translate(0 * $transform-direction, -50%);
+}
+
+.slick-prev:hover,
+.slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus {
+  opacity: 1;
+  outline: none;
+}
+
+.slick-prev.slick-disabled,
+.slick-next.slick-disabled {
+  opacity: 0.3;
+}
+
+@if $direction == rtl {
+  .slick-prev {
+    #{$end-direction}: 0;
+    #{$start-direction}: auto;
+    background: url("/img/icons/left.svg") 50% 50% no-repeat;
+    background-size: 100%;
+    margin-#{$end-direction}: 20px;
+  }
+  
+  .slick-next {
+    #{$end-direction}: auto;
+    #{$start-direction}: 0;
+    background: url("/img/icons/right.svg") 50% 50% no-repeat;
+    background-size: 100%;
+    margin-#{$start-direction}: 20px;
+  }
+} @else {
+  .slick-prev {
+    #{$start-direction}: 0;
+    background: url("/img/icons/left.svg") 50% 50% no-repeat;
+    background-size: 100%;
+  } 
+  
+  .slick-next {
+    #{$end-direction}: 0;
+    background: url("/img/icons/right.svg") 50% 50% no-repeat;
+    background-size: 100%;
+  }
+}
+
+.slick-slider {
+  margin-bottom: 2em;
+}
+
+.slick-slide {
+  outline: none;
+}
+
+.slick-dots {
+  position: absolute;
+  top: 100%;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 0;
+  list-style: none;
+  text-align: center;
+
+  li {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    margin-#{$end-direction}: 0.5em;
+    cursor: pointer;
+
+    &:last-child {
+      margin-#{$end-direction}: 0;
+    }
+
+    @if $direction == rtl {
+      &:first-child {
+        margin-#{$end-direction}: 0;
+      }
+
+      &:last-child {
+        margin-#{$end-direction}: 0.5em;
+      }
+    }
+
+    button {
+      display: block;
+      width: 20px;
+      height: 20px;
+      padding: 5px;
+      border: 0;
+      background: transparent;
+      color: transparent;
+      cursor: pointer;
+      font-size: 0;
+      line-height: 0;
+      outline: none;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        #{$start-direction}:0;
+        width: 16px;
+        height: 16px;
+        background-color: lighten($theme-color-secondary, 33%);
+        border-radius: 50%;
+        color: $theme-color-black;
+        content: "";
+        font-size: 6px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 16px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.slick-dots li button:hover,
+.slick-dots li button:focus {
+  outline: none;
+}
+

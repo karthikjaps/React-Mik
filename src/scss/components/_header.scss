@@ -1,0 +1,238 @@
+.header {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  #{$end-direction}: 0;
+  #{$start-direction}: 0;
+  height: $header-height;
+  backface-visibility: hidden;
+  background-image: $theme-header-gradient;
+  box-shadow: $box-shadow;
+  transform: translateZ(0);
+
+  @include breakpoint {
+    z-index: 9;
+    height: $header-height--desktop;
+    box-shadow: unset;
+  }
+
+  @if $useDarkTheme == true {
+    background-color: $theme-color-primary;
+    color: $font-color-light;
+  } @else {
+    background-color: $theme-color-white;
+    color: $font-color;
+  }
+}
+
+.header__background {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  #{$end-direction}: 0;
+  bottom: 0;
+  #{$start-direction}: 0;
+  height: $header-height;
+
+  @include breakpoint {
+    height: $header-height--desktop;
+  }
+
+  &::before {
+    display: block;
+    height: 100%;
+    background: url("/img/header-background.png") repeat 0%;
+    background-size: 3em;
+    content: "";
+    mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 1),
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 1)
+    );
+    opacity: 0.9;
+  }
+}
+
+.header-dropdown {
+  width: 3em;
+  height: 5em;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 6em;
+    height: 5em;
+    margin: auto;
+    content: "";
+  }
+}
+
+.header__container {
+  @include container($max-width);
+  position: relative;
+  height: 100%;
+}
+
+.header__logo {
+  position: absolute;
+  top: 50%;
+  #{$start-direction}: 50%;
+  height: 2em;
+  transform: translate(-50% * $transform-direction, -50%);
+
+  @include breakpoint {
+    height: 2.5em;
+  }
+}
+
+.header__logo__img {
+  display: block;
+  max-width: 100%;
+  height: 100%;
+}
+
+.header__left {
+  @extend %boxContainer;
+  #{$start-direction}: calc(#{$side-padding} + 2.5em);
+
+  @include breakpoint {
+    #{$start-direction}: $side-padding;
+  }
+
+  @include breakpoint(max-width) {
+    #{$start-direction}: 0;
+  }
+}
+
+.header__right {
+  @extend %boxContainer;
+  #{$end-direction}: $side-padding;
+
+  @include breakpoint(max-width) {
+    #{$end-direction}: 0;
+  }
+}
+
+.header__icon {
+  margin-#{$end-direction}: 1em;
+  text-align: center;
+
+  &:last-child {
+    margin-#{$end-direction}: 0;
+  }
+
+  @include breakpoint {
+    margin-#{$end-direction}: 0;
+
+    &:last-child {
+      margin-#{$end-direction}: 0;
+    }
+  }
+}
+
+.header__icon--search {
+  display: none;
+
+  @include breakpoint {
+    display: none;
+  }
+}
+
+.header__icon--lang {
+  display: none;
+
+  @include breakpoint {
+    display: inline-block;
+  }
+}
+
+.header__icon--flag {
+  display: none;
+
+  @include breakpoint {
+    display: inline-block;
+  }
+}
+
+.header__icon--cart {
+  margin-#{$end-direction}: 0;
+
+  @include breakpoint {
+    display: inline-block;
+    padding: 0 1.5em;
+  }
+}
+
+.header__icon--account {
+  display: none;
+
+  @include breakpoint {
+    display: inline-block;
+  }
+}
+
+.header__icon__link {
+  position: relative;
+}
+
+.header__icon__img {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+}
+
+.header__icon__img--flag {
+  @include breakpoint {
+    width: 1.5em;
+    height: 1.5em;
+  }
+}
+
+.header__icon__text {
+  display: none;
+
+  @include breakpoint {
+    display: inline; 
+    color: $theme-color-white;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    margin-#{$start-direction}: 0.5em;
+  }
+}
+
+.header__icon__img--search {
+  margin-left: 0.5em;
+
+  @include breakpoint {
+    margin: 0;
+  }
+}
+
+.header__icon__span {
+  color: $theme-color-white;
+  font-weight: 500;
+}
+
+.header__icon__notification {
+  position: absolute;
+  #{$start-direction}: -1em;
+  bottom: 1em;
+  width: 1.5em;
+  height: 1.5em;
+  background: $theme-color-primary;
+  border-radius: 50%;
+  color: $theme-color-white;
+  font-size: 0.625em;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+
+  @include breakpoint {
+    font-size: 0.625em;
+  }
+}

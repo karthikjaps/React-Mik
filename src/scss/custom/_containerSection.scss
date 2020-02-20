@@ -1,0 +1,57 @@
+$useAlternatingColors: false;
+$container-section-padding: $side-padding;
+
+.container-section {
+  @include container($max-width);
+  position: relative;
+  padding: 0 $container-section-padding;
+
+  @include breakpoint(max-width) {
+    padding: 0;
+  }
+
+  @if $useAlternatingColors == true {
+    &:nth-child(2n + 1) {
+      background-color: $theme-color-white;
+    }
+  }
+}
+
+.container-section--no-padding-mobile {
+  padding: 0;
+
+  @include breakpoint {
+    padding: 0 $container-section-padding;
+  }
+}
+
+.container-section__title {
+  display: block;
+  color: $theme-color-black;
+  font-weight: 700;
+  text-align: $start-direction;
+  text-transform: uppercase;
+
+  @include breakpoint {
+    text-align: center;
+  }
+}
+
+.container-section__list,
+.container-section__contents {
+  @include container;
+
+  padding-top: 1em;
+
+  @include breakpoint {
+    padding-top: 3em;
+  }
+}
+
+.container-section-list__item {
+  margin-bottom: 2em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

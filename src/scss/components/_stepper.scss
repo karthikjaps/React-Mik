@@ -1,0 +1,30 @@
+.stepper__button {
+  display: inline-block;
+  color: $theme-color-primary;
+  cursor: pointer;
+  font-family: $font-family;
+  font-size: 1.5em;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.stepper__input-field {
+  display: inline-block;
+}
+
+.stepper__input-field__input {
+  width: 3em;
+  margin: 0 0.5em;
+  border: 0px;
+  font-weight: 500;
+  text-align: center;
+  transform: translateY(-0.13em);
+}
+
+.stepper__button--disabled {
+  color: $disabled-color;
+  cursor: initial;
+  pointer-events: none;
+}

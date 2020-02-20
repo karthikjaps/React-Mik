@@ -1,0 +1,161 @@
+$footer-title-color: #0d212e;
+$footer-background-color: #eff3f6;
+$footer-color: #1d1d1d;
+
+.footer {
+  z-index: 6;
+  background-color: $footer-background-color;
+  color: $footer-color;
+  line-height: 1;
+  text-align: center;
+
+  @include breakpoint {
+    background-color: $footer-background-color;
+    color: $footer-color;
+    text-align: $start-direction;
+  }
+}
+
+.footer-wrapper {
+  @include container($max-width);
+
+  @include breakpoint {
+    padding: 1em;
+  }
+}
+
+.quick-links,
+.social-links {
+  @include container;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 2em;
+  font-size: 0.75em;
+  line-height: 2;
+  text-align: center;
+
+  @include breakpoint {
+    display: flex;
+    margin-top: 2em;
+    line-height: 2.5;
+    text-align: $start-direction;
+  }
+}
+
+.quick-link {
+  @include span(1 of 1 last $direction);
+  display: none;
+  padding: 0 2em;
+
+  &:nth-child(5n) {
+    display: block;
+  }
+
+  @include breakpoint {
+    @include span(1 of 4 1/12 $direction);
+    display: block;
+    flex: 1 0 auto;
+    padding: 2em 0 1.5em;
+
+    &:nth-child(4n) {
+      @include last($direction);
+    }
+  }
+}
+
+.quick-link__links {
+  padding: 0;
+  margin: 0;
+  color: $theme-color-black;
+
+  @include breakpoint {
+    color: $footer-title-color;
+  }
+}
+
+.quick-link__links-item {
+  padding: 0.33em 0;
+  line-height: 1.5;
+  text-align: $start-direction;
+}
+
+.quick-link__links-item__link,
+.quick-link__links-item__link:visited {
+  color: $theme-color-black;
+}
+
+.quick-link__title {
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: $start-direction;
+  text-transform: uppercase;
+}
+
+.newsletter__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2em 2em 0;
+
+  @include breakpoint {
+    padding: 2em 0;
+  }
+}
+
+.form--newsletter {
+  @include container;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 5em;
+  font-size: 1rem;
+
+  @include breakpoint {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    font-size: 1em;
+  }
+}
+
+.form-field--newsletter {
+  @include span(2 of 3 0 $direction);
+  padding: 0;
+
+  margin-#{$end-direction}: 0;
+}
+
+.button--newsletter {
+  @include span(1 of 3 0 last $direction);
+  padding: 1em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.trust_icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+  font-size: 0.875em;
+  font-weight: 700;
+  line-height: 1.5;
+
+  @include breakpoint {
+    flex-direction: row;
+    padding-bottom: 2em;
+    border-bottom: 2px solid $darken-color-light;
+  }
+}
+
+.trust_icons-item {
+  display: flex;
+  align-items: center;
+  margin: 1em auto 0;
+
+  @include breakpoint {
+    margin: 0 2.5em;
+  }
+}
+
+.trust_icons-item__icon {
+  margin-#{$end-direction}: 1.25em;
+}
