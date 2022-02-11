@@ -78,7 +78,7 @@
     "core-js": "^2.6.5",
     "exenv": "^1.2.2",
     "express": "^4.15.4",
-    "express-handlebars": "^3.0.0",
+    "express-handlebars": "^5.3.1",
     "express-session": "^1.15.5",
     "form-data": "^2.3.3",
     "formidable": "^1.1.1",
